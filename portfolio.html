@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Anagha Santhosh | Portfolio</title>
+
+    <style>
+        :root {
+            --peach: #f7d6c5;
+            --light-peach: #fff5ef;
+            --dark-peach: #d88f72;
+            --brown: #5a3828;
+            --dark-brown: #3b2519;
+            --soft-brown: #806052;
+            --white: #ffffff;
+            --cream: #fffaf7;
+            --border: #ead5ca;
+            --shadow: 0 10px 30px rgba(90, 56, 40, 0.10);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--cream);
+            color: var(--soft-brown);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 250, 247, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1150px;
+            height: 75px;
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 700;
+            color: var(--brown);
+        }
+
+        .logo span {
+            color: var(--dark-peach);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--soft-brown);
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark-peach);
+        }
+
+        /* COMMON */
+
+        section {
+            max-width: 1150px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: var(--brown);
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #a07868;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            padding-top: 130px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at top right,
+                    #f7d6c5 0,
+                    transparent 35%
+                ),
+                var(--cream);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hello {
+            display: inline-block;
+            padding: 8px 18px;
+            margin-bottom: 20px;
+
+            background: var(--light-peach);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+
+            color: #a96149;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 78px);
+            line-height: 1.1;
+            color: var(--dark-brown);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--dark-peach);
+        }
+
+        .hero h3 {
+            font-size: 24px;
+            color: var(--brown);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: auto;
+            color: #806052;
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            margin-top: 32px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 27px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--brown);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-brown);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--dark-peach);
+            color: #a96149;
+        }
+
+        .btn-outline:hover {
+            background: var(--peach);
+            transform: translateY(-3px);
+        }
+
+        /* ABOUT */
+
+        .about-section {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--brown);
+            font-size: 27px;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            color: var(--soft-brown);
+            margin-bottom: 15px;
+        }
+
+        .info-box {
+            background: var(--light-peach);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .info-box p {
+            margin: 12px 0;
+            color: var(--soft-brown);
+        }
+
+        .info-box strong {
+            color: var(--brown);
+        }
+
+        /* EDUCATION */
+
+        .education-card {
+            max-width: 800px;
+            margin: auto;
+
+            background: var(--white);
+            padding: 30px;
+
+            border-radius: 18px;
+            border-left: 5px solid var(--dark-peach);
+
+            box-shadow: var(--shadow);
+        }
+
+        .education-card h3 {
+            color: var(--brown);
+            margin-bottom: 8px;
+        }
+
+        .education-card .year {
+            color: var(--dark-peach);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .education-card p {
+            color: var(--soft-brown);
+        }
+
+        /* SKILLS */
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            background: var(--white);
+            padding: 28px 20px;
+
+            text-align: center;
+
+            border-radius: 18px;
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(90, 56, 40, 0.05);
+        }
+
+        .skill:hover {
+            transform: translateY(-7px);
+            background: var(--light-peach);
+            border-color: var(--dark-peach);
+        }
+
+        .skill-icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .skill h3 {
+            color: var(--brown);
+            margin-bottom: 7px;
+        }
+
+        .skill p {
+            color: #957568;
+            font-size: 14px;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-image {
+            height: 170px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 55px;
+
+            background: linear-gradient(
+                135deg,
+                #f7d6c5,
+                #e9b39f
+            );
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            color: var(--brown);
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: #87695b;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .project-link {
+            color: #b66d54;
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            color: var(--brown);
+        }
+
+        /* INTERESTS */
+
+        .interest-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .interest {
+            padding: 12px 20px;
+            border-radius: 30px;
+
+            background: var(--light-peach);
+            border: 1px solid var(--border);
+
+            color: var(--brown);
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .interest:hover {
+            background: var(--peach);
+            transform: translateY(-3px);
+        }
+
+        /* CONTACT */
+
+        .contact-section {
+            background: var(--white);
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        form {
+            display: grid;
+            gap: 16px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 15px 18px;
+
+            border: 1px solid var(--border);
+            border-radius: 12px;
+
+            background: var(--cream);
+            color: var(--brown);
+
+            outline: none;
+            font-family: inherit;
+            font-size: 15px;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--dark-peach);
+            box-shadow: 0 0 0 3px rgba(216, 143, 114, 0.12);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--dark-brown);
+            color: #f5ddd2;
+            text-align: center;
+            padding: 28px 20px;
+        }
+
+        footer span {
+            color: #e6a58d;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                height: auto;
+                padding: 18px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding-top: 160px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero h3 {
+                font-size: 20px;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+        <nav>
+
+            <div class="logo">
+                Anagha <span>Santhosh</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hello">
+                👋 Hello, I'm
+            </div>
+
+            <h1>
+                Anagha <span>Santhosh</span>
+            </h1>
+
+            <h3>
+                B.Tech CSE Student • Developer • Designer • AI/ML Enthusiast
+            </h3>
+
+            <p>
+                I'm a third-year Computer Science Engineering student
+                who loves coding, designing, building websites and
+                exploring Python, Artificial Intelligence and
+                Machine Learning.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    Explore My Work
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Get In Touch
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about-section" id="about">
+
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Get to know me</p>
+        </div>
+
+        <div class="about-content">
+
+            <div class="about-text">
+
+                <h3>
+                    Passionate about technology & creativity ✨
+                </h3>
+
+                <p>
+                    Hello! I'm Anagha Santhosh, a third-year B.Tech
+                    Computer Science Engineering student with a strong
+                    interest in technology, programming and design.
+                </p>
+
+                <p>
+                    I enjoy learning how things work and turning ideas
+                    into useful digital experiences. I love working with
+                    HTML, CSS, Python and exploring Artificial Intelligence
+                    and Machine Learning.
+                </p>
+
+                <p>
+                    I'm continuously improving my technical skills through
+                    projects, experimentation and learning new technologies.
+                    My goal is to become a skilled software developer who
+                    can combine coding with creativity.
+                </p>
+
+            </div>
+
+            <div class="info-box">
+
+                <p>
+                    <strong>Name:</strong>
+                    Anagha Santhosh
+                </p>
+
+                <p>
+                    <strong>Degree:</strong>
+                    B.Tech Computer Science Engineering
+                </p>
+
+                <p>
+                    <strong>Year:</strong>
+                    3rd Year
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    Kerala, India
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    anaghasanthosh0000@gmail.com
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+
+        <div class="section-title">
+            <h2>Education</h2>
+            <p>My academic journey</p>
+        </div>
+
+        <div class="education-card">
+
+            <h3>
+                Bachelor of Technology — Computer Science Engineering
+            </h3>
+
+            <div class="year">
+                3rd Year • Currently Pursuing
+            </div>
+
+            <p>
+                Building a strong foundation in programming, computer
+                science concepts, web development, databases,
+                Artificial Intelligence and Machine Learning.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <div class="section-title">
+            <h2>My Skills</h2>
+            <p>Technologies I'm learning and working with</p>
+        </div>
+
+        <div class="skills-container">
+
+            <div class="skill">
+                <div class="skill-icon">🐍</div>
+                <h3>Python</h3>
+                <p>
+                    Programming, problem solving and application development.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">🌐</div>
+                <h3>HTML & CSS</h3>
+                <p>
+                    Creating responsive websites and modern interfaces.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">🤖</div>
+                <h3>AI & ML</h3>
+                <p>
+                    Exploring Artificial Intelligence and Machine Learning.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">🎨</div>
+                <h3>UI/UX Design</h3>
+                <p>
+                    Designing clean and user-friendly interfaces.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">💻</div>
+                <h3>Programming</h3>
+                <p>
+                    Developing logical thinking and solving coding problems.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">⚡</div>
+                <h3>JavaScript</h3>
+                <p>
+                    Learning interactive and dynamic web development.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">🔧</div>
+                <h3>Git & GitHub</h3>
+                <p>
+                    Managing projects and learning version control.
+                </p>
+            </div>
+
+            <div class="skill">
+                <div class="skill-icon">🧠</div>
+                <h3>Problem Solving</h3>
+                <p>
+                    Finding creative solutions to programming problems.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <div class="section-title">
+            <h2>My Projects</h2>
+            <p>Things I've built and ideas I'm exploring</p>
+        </div>
+
+        <div class="projects">
+
+            <div class="project-card">
+
+                <div class="project-image">
+                    🌐
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Personal Portfolio</h3>
+
+                    <p>
+                        A responsive personal portfolio website created
+                        using HTML and CSS to showcase my skills,
+                        interests and projects.
+                    </p>
+
+                    <a href="#" class="project-link">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-image">
+                    🐍
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Python Project</h3>
+
+                    <p>
+                        A Python-based project focused on programming,
+                        logical thinking and solving real-world problems.
+                    </p>
+
+                    <a href="#" class="project-link">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-image">
+                    🤖
+                </div>
+
+                <div class="project-content">
+
+                    <h3>AI / ML Project</h3>
+
+                    <p>
+                        An AI and Machine Learning project exploring
+                        data, models and intelligent applications.
+                    </p>
+
+                    <a href="#" class="project-link">
+                        View Project →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTERESTS -->
+
+    <section id="interests">
+
+        <div class="section-title">
+            <h2>My Interests</h2>
+            <p>Things I enjoy learning and exploring</p>
+        </div>
+
+        <div class="interest-container">
+
+            <div class="interest">💻 Coding</div>
+            <div class="interest">🐍 Python</div>
+            <div class="interest">🌐 Web Development</div>
+            <div class="interest">🎨 UI/UX Design</div>
+            <div class="interest">🤖 Artificial Intelligence</div>
+            <div class="interest">🧠 Machine Learning</div>
+            <div class="interest">📊 Data Science</div>
+            <div class="interest">🚀 New Technologies</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact-section" id="contact">
+
+        <div class="section-title">
+            <h2>Let's Connect</h2>
+            <p>Have an idea or want to say hello?</p>
+        </div>
+
+        <div class="contact-container">
+
+            <form onsubmit="sendMessage(event)">
+
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <textarea
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © <span id="year"></span>
+            Anagha Santhosh. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        function sendMessage(event) {
+
+            event.preventDefault();
+
+            alert(
+                "Thank you for reaching out! " +
+                "I'll get back to you soon."
+            );
+
+            event.target.reset();
+        }
+
+    </script>
+
+</body>
+</html>
+      
+      
